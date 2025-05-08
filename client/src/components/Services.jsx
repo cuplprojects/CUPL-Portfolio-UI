@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import {
   fadeInUp,
   rotateIn,
@@ -180,7 +179,7 @@ const Services = () => {
                 </motion.h3>
 
                 <motion.p
-                  className="text-gray-600 mb-4"
+                  className="text-gray-600"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -188,22 +187,6 @@ const Services = () => {
                 >
                   {service.description}
                 </motion.p>
-
-                <motion.a
-                  href="#contact"
-                  className="text-primary font-medium inline-flex items-center group"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn more
-                  <motion.span
-                    initial={{ x: 0 }}
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                  >
-                    <ArrowRight className="h-5 w-5 ml-1 transition" />
-                  </motion.span>
-                </motion.a>
               </div>
             </motion.div>
           ))}
