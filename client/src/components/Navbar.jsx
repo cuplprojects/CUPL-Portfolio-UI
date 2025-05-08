@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { springScale, fadeInWithDelay } from "@/lib/animations";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
