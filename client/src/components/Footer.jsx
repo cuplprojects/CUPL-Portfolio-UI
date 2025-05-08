@@ -94,11 +94,11 @@ const Footer = () => {
   };
 
   // Handle newsletter form submission (non-functional as requested)
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // This is a frontend-only implementation
-    console.log("Newsletter form submitted (frontend only)");
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // This is a frontend-only implementation
+  //   console.log("Newsletter form submitted (frontend only)");
+  // };
 
   // Smooth scroll to top function
   const scrollToTop = () => {
@@ -191,7 +191,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
-              <motion.a
+              {/* <motion.a
                 href="#"
                 className="p-2 bg-secondary-dark/40 rounded-full text-gray-300 hover:text-white transition"
                 variants={socialIconVariants}
@@ -201,9 +201,10 @@ const Footer = () => {
               >
                 <span className="sr-only">Facebook</span>
                 <Facebook className="h-5 w-5" />
-              </motion.a>
+              </motion.a> */}
               <motion.a
-                href="#"
+                href="https://www.linkedin.com/company/chandrakala-universal-private-limited"
+                target="_blank"
                 className="p-2 bg-secondary-dark/40 rounded-full text-gray-300 hover:text-white transition"
                 variants={socialIconVariants}
                 custom={1}
@@ -213,7 +214,7 @@ const Footer = () => {
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin className="h-5 w-5" />
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 href="#"
                 className="p-2 bg-secondary-dark/40 rounded-full text-gray-300 hover:text-white transition"
                 variants={socialIconVariants}
@@ -223,7 +224,7 @@ const Footer = () => {
               >
                 <span className="sr-only">Twitter</span>
                 <Twitter className="h-5 w-5" />
-              </motion.a>
+              </motion.a> */}
             </motion.div>
           </motion.div>
 
@@ -323,7 +324,7 @@ const Footer = () => {
             </motion.ul>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <motion.h3
               className="text-xl font-bold mb-4"
               variants={slideInRight}
@@ -365,7 +366,7 @@ const Footer = () => {
                 </motion.div>
               </div>
             </motion.form>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         <motion.div
@@ -378,7 +379,7 @@ const Footer = () => {
           <p className="text-gray-300">&copy; {new Date().getFullYear()} Chandrakala Universal Pvt. Ltd. All rights reserved.</p>
 
           <div className="mt-4 md:mt-0 flex items-center justify-center md:justify-end">
-            <div className="mr-8">
+            {/* <div className="mr-8">
               <ul className="flex justify-center md:justify-end space-x-6">
                 <motion.li
                   whileHover={{ y: -2 }}
@@ -399,7 +400,7 @@ const Footer = () => {
                   <a href="#" className="text-gray-300 hover:text-white transition">Legal</a>
                 </motion.li>
               </ul>
-            </div>
+            </div> */}
 
             <motion.button
               onClick={scrollToTop}
