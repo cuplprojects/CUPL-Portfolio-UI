@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logoImage from "../assets/logo/Group 1.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,16 +12,16 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      
+
       // Update active section based on scroll position
       const scrollPosition = window.scrollY + 100;
       const sections = document.querySelectorAll('section[id]');
-      
+
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
-        
+
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
           setActiveSection(sectionId);
         }
@@ -50,8 +51,8 @@ const Navbar = () => {
   // Logo animation variants
   const logoVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
       transition: {
         type: "spring",
@@ -75,7 +76,7 @@ const Navbar = () => {
         delay: 0.2 + custom * 0.1
       }
     }),
-    hover: { 
+    hover: {
       y: -3,
       color: "hsl(var(--primary))",
       transition: { duration: 0.2 }
@@ -86,8 +87,8 @@ const Navbar = () => {
   // Mobile menu variants
   const mobileMenuVariants = {
     hidden: { opacity: 0, height: 0 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       height: "auto",
       transition: {
         duration: 0.3,
@@ -95,8 +96,8 @@ const Navbar = () => {
         staggerChildren: 0.1
       }
     },
-    exit: { 
-      opacity: 0, 
+    exit: {
+      opacity: 0,
       height: 0,
       transition: {
         duration: 0.3,
@@ -110,8 +111,8 @@ const Navbar = () => {
   // Mobile menu item variants
   const mobileItemVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
       transition: { type: "spring", stiffness: 300, damping: 25 }
     },
@@ -119,47 +120,57 @@ const Navbar = () => {
   };
 
   return (
-    <motion.header 
+    <motion.header
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-white shadow-sm py-2" : "bg-white/95 py-4"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 300, 
-        damping: 25, 
-        duration: 0.7 
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 25,
+        duration: 0.7
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <motion.div 
+          <motion.div
             className="flex items-center"
             variants={logoVariants}
             initial="hidden"
             animate="visible"
           >
-            <a href="#" className="text-xl font-bold">
-              <motion.span 
-                className="text-secondary"
+            <a href="#" className="flex items-center">
+              <motion.img
+                src={logoImage}
+                alt="CUPL Logo"
+                className="h-8 md:h-9 w-auto mr-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-              >
-                Chandrakala
-              </motion.span>
-              <motion.span 
-                className="text-primary"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                {" Universal"}
-              </motion.span>
+              />
+              <div className="flex flex-col md:flex-row md:items-center">
+                <motion.span
+                  className="text-secondary text-lg md:text-xl font-bold"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  Chandrakala Universal Pvt. Ltd.
+                </motion.span>
+                {/* <motion.span
+                  className="text-primary text-lg md:text-xl font-bold hidden md:inline-block"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  {" Universal"}
+                </motion.span> */}
+              </div>
             </a>
           </motion.div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link, index) => (
@@ -167,8 +178,8 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className={`nav-link font-medium transition-all duration-300 ${
-                  activeSection === link.id 
-                    ? "text-primary" 
+                  activeSection === link.id
+                    ? "text-primary"
                     : "text-gray-800 hover:text-primary"
                 }`}
                 variants={navItemVariants}
@@ -182,7 +193,7 @@ const Navbar = () => {
               </motion.a>
             ))}
           </nav>
-          
+
           {/* Mobile Menu Button with animations */}
           <motion.button
             onClick={toggleMenu}
@@ -219,7 +230,7 @@ const Navbar = () => {
             </AnimatePresence>
           </motion.button>
         </div>
-        
+
         {/* Mobile Menu with improved animations */}
         <AnimatePresence>
           {isOpen && (
@@ -231,6 +242,18 @@ const Navbar = () => {
               className="md:hidden py-4 overflow-hidden"
             >
               <div className="flex flex-col space-y-0">
+                {/* Mobile logo display with full name */}
+                <motion.div
+                  variants={mobileItemVariants}
+                  className="flex items-center py-2 px-4 mb-2 border-b border-gray-100"
+                >
+                  <img src={logoImage} alt="CUPL Logo" className="h-7 w-auto mr-2" />
+                  <div className="font-bold">
+                    <span className="text-secondary">Chandrakala</span>
+                    <span className="text-primary"> Universal</span>
+                  </div>
+                </motion.div>
+
                 {navLinks.map((link, index) => (
                   <motion.a
                     key={link.name}
