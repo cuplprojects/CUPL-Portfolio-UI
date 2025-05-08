@@ -158,14 +158,14 @@ const Navbar = () => {
               <motion.img
                 src={logoImage}
                 alt="CUPL Logo"
-                className="h-8 md:h-9 w-auto mr-2"
+                className="h-8 md:h-9 lg:h-12 w-auto mr-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               />
               <div className="flex flex-col md:flex-row md:items-center">
                 <motion.span
-                  className="text-secondary text-lg md:text-xl font-bold"
+                  className="text-secondary text-lg md:text-xl lg:text-2xl font-bold"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
@@ -261,7 +261,7 @@ const Navbar = () => {
                   variants={mobileItemVariants}
                   className="flex items-center py-2 px-4 mb-2 border-b border-gray-100"
                 >
-                  <img src={logoImage} alt="CUPL Logo" className="h-7 w-auto mr-2" />
+                  <img src={logoImage} alt="CUPL Logo" className="h-8 w-auto mr-2" />
                   <div className="font-bold">
                     <span className="text-secondary">Chandrakala</span>
                     <span className="text-primary"> Universal</span>
