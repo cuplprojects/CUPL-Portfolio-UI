@@ -27,6 +27,7 @@
   /* Direct color variables for easier use with inline styles */
   --color-primary: #10b981;
   --color-secondary: #064e3b;
+  --color-accent: #34d399;
 }
 
 .dark {
