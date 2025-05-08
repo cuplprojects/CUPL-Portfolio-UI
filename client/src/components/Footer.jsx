@@ -7,12 +7,16 @@ import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
 const Footer = () => {
   // Services list
   const services = [
-    { name: "Result Processing Software", href: "#services" },
-    { name: "OMR Sheet Scanning", href: "#services" },
     { name: "University Web Portals", href: "#services" },
-    { name: "Educational ERP Systems", href: "#services" },
     { name: "Custom Web Development", href: "#services" },
     { name: "Global Export Solutions", href: "#services" },
+  ];
+
+  // Products list
+  const products = [
+    { name: "Result Processing Software", href: "#products" },
+    { name: "OMR Sheet Scanning", href: "#products" },
+    { name: "Educational ERP Systems", href: "#products" },
   ];
 
   // Quick links
@@ -20,6 +24,7 @@ const Footer = () => {
     { name: "Home", href: "#home" },
     { name: "About Us", href: "#about" },
     { name: "Services", href: "#services" },
+    { name: "Products", href: "#products" },
     { name: "Why Choose Us", href: "#why-us" },
     { name: "Our Clients", href: "#clients" },
     { name: "Contact", href: "#contact" },
@@ -247,6 +252,38 @@ const Footer = () => {
                     <span className="flex items-center">
                       <span className="h-1 w-2 bg-primary/70 rounded-full mr-2 transition-all duration-300 group-hover:w-3"></span>
                       {service.name}
+                    </span>
+                  </a>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <motion.h3
+              className="text-xl font-bold mb-4"
+              variants={slideInLeft}
+            >
+              Products
+            </motion.h3>
+            <motion.ul
+              className="space-y-2"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {products.map((product, index) => (
+                <motion.li
+                  key={index}
+                  variants={listItemVariants}
+                  custom={index}
+                  whileHover="hover"
+                >
+                  <a href={product.href} className="text-gray-300 transition inline-block">
+                    <span className="flex items-center">
+                      <span className="h-1 w-2 bg-primary/70 rounded-full mr-2 transition-all duration-300 group-hover:w-3"></span>
+                      {product.name}
                     </span>
                   </a>
                 </motion.li>

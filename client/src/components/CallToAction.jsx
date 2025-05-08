@@ -141,6 +141,7 @@ const CallToAction = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="flex flex-col sm:flex-row gap-4"
               >
                 <Button
                   asChild
@@ -148,7 +149,15 @@ const CallToAction = () => {
                   variant="outline"
                   className="bg-transparent border-white text-white hover:bg-white/20 font-medium transition-all duration-300"
                 >
-                  <a href="#services">Explore Our Services</a>
+                  <a href="#services">Explore Services</a>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-white text-white hover:bg-white/20 font-medium transition-all duration-300"
+                >
+                  <a href="#products">View Products</a>
                 </Button>
               </motion.div>
             </motion.div>
