@@ -23,6 +23,11 @@
   --destructive-foreground: 60 9.1% 97.8%;
   --ring: 151 58% 39%; /* match primary */
   --radius: 0.5rem;
+
+  /* Direct color variables for easier use with inline styles */
+  --color-primary: #10b981;
+  --color-secondary: #064e3b;
+  --color-accent: #34d399;
 }
 
 .dark {
@@ -92,6 +97,11 @@
   .nav-link:hover {
     @apply text-primary;
     text-shadow: 0 0 8px rgba(0, 150, 100, 0.2);
+  }
+
+  /* Active link styles */
+  .nav-link.active {
+    @apply text-primary font-semibold;
   }
 
   .service-card, .product-card {

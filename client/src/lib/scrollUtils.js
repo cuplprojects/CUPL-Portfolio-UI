@@ -45,8 +45,15 @@ export const setupNavHighlighting = () => {
     // Update active class on navigation links
     if (currentSection) {
       navLinks.forEach(link => {
+        // Remove active class from all links
         link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + currentSection) {
+
+        // Get the href attribute and extract the section ID
+        const href = link.getAttribute('href');
+        const linkSectionId = href ? href.replace('#', '') : '';
+
+        // Add active class if this link points to the current section
+        if (linkSectionId === currentSection) {
           link.classList.add('active');
         }
       });
@@ -62,15 +69,30 @@ export const setupNavHighlighting = () => {
   // Add click event listeners to nav links to update active state immediately
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href').substring(1);
+      const href = this.getAttribute('href');
+      const targetId = href ? href.substring(1) : '';
 
-      // Remove active class from all links
-      navLinks.forEach(navLink => {
-        navLink.classList.remove('active');
-      });
+      if (targetId) {
+        // Remove active class from all links
+        navLinks.forEach(navLink => {
+          navLink.classList.remove('active');
+        });
 
-      // Add active class to clicked link
-      this.classList.add('active');
+        // Add active class to clicked link
+        this.classList.add('active');
+
+        // Update current section in the DOM
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach(section => {
+          if (section.id === targetId) {
+            // This is a hack to force the browser to recognize this section as active
+            setTimeout(() => {
+              // Trigger a scroll event to update the active section
+              window.dispatchEvent(new Event('scroll'));
+            }, 100);
+          }
+        });
+      }
     });
   });
 

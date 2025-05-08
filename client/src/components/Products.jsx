@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 const Products = () => {
   // Animation variants
@@ -116,10 +115,10 @@ const Products = () => {
           <rect width="404" height="404" fill="url(#product-dots)" />
         </svg>
       </div>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <motion.h6 
+          <motion.h6
             className="text-primary font-semibold uppercase tracking-wider mb-2"
             variants={springScale}
             initial="hidden"
@@ -128,8 +127,8 @@ const Products = () => {
           >
             Our Products
           </motion.h6>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-3xl md:text-4xl font-bold mb-6"
             variants={rotateIn}
             initial="hidden"
@@ -138,8 +137,8 @@ const Products = () => {
           >
             Educational Technology Products
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-lg text-gray-600"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -149,8 +148,8 @@ const Products = () => {
             Specialized software solutions designed to streamline educational processes and enhance institutional efficiency.
           </motion.p>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -158,22 +157,22 @@ const Products = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           {products.map((product) => (
-            <motion.div 
+            <motion.div
               key={product.id}
               className="product-card bg-white rounded-xl shadow-md overflow-hidden relative"
               variants={itemVariants}
               whileHover={hoverElevate}
             >
               <div className="absolute top-4 right-4 z-10">
-                <motion.div 
+                <motion.div
                   className="p-2 bg-white rounded-full shadow-md text-primary"
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 260, 
-                    damping: 20, 
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
                     delay: 0.6 + (product.id * 0.1)
                   }}
                   whileHover={{ rotate: 15, scale: 1.1 }}
@@ -181,19 +180,19 @@ const Products = () => {
                   {product.icon}
                 </motion.div>
               </div>
-              
+
               <div className="h-48 overflow-hidden">
-                <motion.img 
-                  src={product.image} 
-                  alt={product.alt} 
+                <motion.img
+                  src={product.image}
+                  alt={product.alt}
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 />
               </div>
-              
+
               <div className="p-6">
-                <motion.h3 
+                <motion.h3
                   className="text-xl font-semibold mb-3"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -202,9 +201,9 @@ const Products = () => {
                 >
                   {product.title}
                 </motion.h3>
-                
-                <motion.p 
-                  className="text-gray-600 mb-4"
+
+                <motion.p
+                  className="text-gray-600"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -212,22 +211,6 @@ const Products = () => {
                 >
                   {product.description}
                 </motion.p>
-                
-                <motion.a 
-                  href="#contact" 
-                  className="text-primary font-medium inline-flex items-center group"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn more
-                  <motion.span
-                    initial={{ x: 0 }}
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                  >
-                    <ArrowRight className="h-5 w-5 ml-1 transition" />
-                  </motion.span>
-                </motion.a>
               </div>
             </motion.div>
           ))}

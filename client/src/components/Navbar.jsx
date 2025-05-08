@@ -41,6 +41,11 @@ const Navbar = () => {
   const handleNavClick = (sectionId) => {
     setActiveSection(sectionId);
     closeMenu();
+
+    // Force a scroll event to update the active section in the DOM
+    setTimeout(() => {
+      window.dispatchEvent(new Event('scroll'));
+    }, 100);
   };
 
   // Toggle mobile menu
@@ -191,11 +196,12 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => handleNavClick(link.id)}
-                className={`nav-link font-medium transition-all duration-300 ${
-                  activeSection === link.id
-                    ? "text-primary font-semibold border-b-2 border-primary"
-                    : "text-gray-800 hover:text-primary"
-                }`}
+                style={{
+                  color: activeSection === link.id ? 'var(--color-primary, #10b981)' : '',
+                  fontWeight: activeSection === link.id ? '600' : '500',
+                  borderBottom: activeSection === link.id ? '2px solid var(--color-primary, #10b981)' : 'none'
+                }}
+                className="nav-link font-medium transition-all duration-300 text-gray-800 hover:text-primary"
                 variants={navItemVariants}
                 initial="hidden"
                 animate="visible"
@@ -275,11 +281,13 @@ const Navbar = () => {
                     custom={index}
                     href={link.href}
                     onClick={() => handleNavClick(link.id)}
-                    className={`block py-2 px-4 my-1 rounded-md transition-colors ${
-                      activeSection === link.id
-                        ? "bg-primary/10 text-primary font-semibold border-l-4 border-primary"
-                        : "text-gray-800 hover:bg-gray-50 hover:text-primary"
-                    }`}
+                    style={{
+                      color: activeSection === link.id ? 'var(--color-primary, #10b981)' : '',
+                      fontWeight: activeSection === link.id ? '600' : '400',
+                      borderLeft: activeSection === link.id ? '4px solid var(--color-primary, #10b981)' : 'none',
+                      backgroundColor: activeSection === link.id ? 'rgba(16, 185, 129, 0.1)' : ''
+                    }}
+                    className="nav-link block py-2 px-4 my-1 rounded-md transition-colors text-gray-800 hover:bg-gray-50 hover:text-primary"
                     whileHover={{ x: 5 }}
                     whileTap={{ scale: 0.98 }}
                   >
