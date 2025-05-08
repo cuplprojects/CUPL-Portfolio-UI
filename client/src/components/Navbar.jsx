@@ -16,6 +16,7 @@ const Navbar = () => {
       // Update active section based on scroll position
       const scrollPosition = window.scrollY + 100;
       const sections = document.querySelectorAll('section[id]');
+      let currentSection = '';
 
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -23,14 +24,24 @@ const Navbar = () => {
         const sectionId = section.getAttribute('id');
 
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          setActiveSection(sectionId);
+          currentSection = sectionId;
         }
       });
+
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle direct navigation link clicks
+  const handleNavClick = (sectionId) => {
+    setActiveSection(sectionId);
+    closeMenu();
+  };
 
   // Toggle mobile menu
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -43,6 +54,7 @@ const Navbar = () => {
     { name: "Home", href: "#home", id: "home" },
     { name: "About", href: "#about", id: "about" },
     { name: "Services", href: "#services", id: "services" },
+    { name: "Products", href: "#products", id: "products" },
     { name: "Why Choose Us", href: "#why-us", id: "why-us" },
     { name: "Our Clients", href: "#clients", id: "clients" },
     { name: "Contact", href: "#contact", id: "contact" },
@@ -79,6 +91,7 @@ const Navbar = () => {
     hover: {
       y: -3,
       color: "hsl(var(--primary))",
+      textShadow: "0 0 8px rgba(0, 150, 100, 0.3)",
       transition: { duration: 0.2 }
     },
     tap: { scale: 0.95 }
@@ -177,9 +190,10 @@ const Navbar = () => {
               <motion.a
                 key={link.name}
                 href={link.href}
+                onClick={() => handleNavClick(link.id)}
                 className={`nav-link font-medium transition-all duration-300 ${
                   activeSection === link.id
-                    ? "text-primary"
+                    ? "text-primary font-semibold border-b-2 border-primary"
                     : "text-gray-800 hover:text-primary"
                 }`}
                 variants={navItemVariants}
@@ -260,10 +274,10 @@ const Navbar = () => {
                     variants={mobileItemVariants}
                     custom={index}
                     href={link.href}
-                    onClick={closeMenu}
+                    onClick={() => handleNavClick(link.id)}
                     className={`block py-2 px-4 my-1 rounded-md transition-colors ${
                       activeSection === link.id
-                        ? "bg-primary/10 text-primary font-medium"
+                        ? "bg-primary/10 text-primary font-semibold border-l-4 border-primary"
                         : "text-gray-800 hover:bg-gray-50 hover:text-primary"
                     }`}
                     whileHover={{ x: 5 }}
