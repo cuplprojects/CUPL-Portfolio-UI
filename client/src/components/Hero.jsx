@@ -370,39 +370,7 @@ const Hero = () => {
               animate={{ opacity: 0.7 }}
               transition={{ duration: 1, delay: 1.8 }}
             >
-              <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <motion.g
-                  animate={{
-                    rotate: [0, 360],
-                  }}
-                  transition={{
-                    duration: 50,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                >
-                  {[...Array(5)].map((_, i) => (
-                    <motion.circle
-                      key={i}
-                      cx={10 + i * 20}
-                      cy={10 + i * 20}
-                      r="3"
-                      fill="currentColor"
-                      className="text-primary"
-                      initial={{ opacity: 0.3 }}
-                      animate={{
-                        opacity: [0.3, 0.8, 0.3],
-                        scale: [1, 1.2, 1]
-                      }}
-                      transition={{
-                        duration: 2,
-                        delay: i * 0.4,
-                        repeat: Infinity
-                      }}
-                    />
-                  ))}
-                </motion.g>
-              </svg>
+             
             </motion.div>
           </motion.div>
         </div>
