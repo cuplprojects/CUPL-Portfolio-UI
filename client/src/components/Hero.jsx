@@ -343,8 +343,8 @@ const Hero = () => {
                   </svg>
                 </motion.div>
                 <div>
-                  <p className="font-medium">Serving Since 2013</p>
-                  <p className="text-sm text-gray-500">Educational Excellence</p>
+                  <p className="font-medium">Trusted By 15+ </p>
+                  <p className="text-sm text-gray-500">Educational Institutions</p>
                 </div>
               </div>
             </motion.div>
