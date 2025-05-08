@@ -4,7 +4,6 @@ import {
   fadeInUp, 
   rotateIn, 
   springScale, 
-  bounceIn, 
   hoverElevate 
 } from "@/lib/animations";
 

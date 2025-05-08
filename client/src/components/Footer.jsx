@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Facebook, Linkedin, Twitter, ArrowUp, Send } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui-jsx/input";
+import { Button } from "@/components/ui-jsx/button";
 import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
 
 const Footer = () => {
@@ -42,10 +42,10 @@ const Footer = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { 
-        type: "spring", 
-        stiffness: 100, 
-        damping: 15 
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15
       },
     },
   };
@@ -61,7 +61,7 @@ const Footer = () => {
         ease: "easeOut",
       },
     }),
-    hover: { 
+    hover: {
       x: 5,
       color: "white",
       transition: { duration: 0.2 }
@@ -80,7 +80,7 @@ const Footer = () => {
         delay: 0.5 + (custom * 0.1)
       }
     }),
-    hover: { 
+    hover: {
       scale: 1.2,
       rotate: 5,
       transition: { duration: 0.2 }
@@ -106,14 +106,14 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-white relative overflow-hidden">
       {/* Decorative elements */}
-      <motion.div 
+      <motion.div
         className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5 }}
       />
-      
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <svg
           className="absolute left-[10%] top-24 opacity-5"
@@ -154,7 +154,7 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -162,7 +162,7 @@ const Footer = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div variants={itemVariants}>
-            <motion.h3 
+            <motion.h3
               className="text-xl font-bold mb-4"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -173,21 +173,21 @@ const Footer = () => {
                 Chandrakala Universal
               </span>
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="text-gray-300 mb-6"
               variants={fadeInUp}
             >
               Empowering education with digital innovation since 2013. Transforming the way educational institutions operate with custom technology solutions.
             </motion.p>
-            <motion.div 
+            <motion.div
               className="flex space-x-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="p-2 bg-secondary-dark/40 rounded-full text-gray-300 hover:text-white transition"
                 variants={socialIconVariants}
                 custom={0}
@@ -197,8 +197,8 @@ const Footer = () => {
                 <span className="sr-only">Facebook</span>
                 <Facebook className="h-5 w-5" />
               </motion.a>
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="p-2 bg-secondary-dark/40 rounded-full text-gray-300 hover:text-white transition"
                 variants={socialIconVariants}
                 custom={1}
@@ -208,8 +208,8 @@ const Footer = () => {
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin className="h-5 w-5" />
               </motion.a>
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="p-2 bg-secondary-dark/40 rounded-full text-gray-300 hover:text-white transition"
                 variants={socialIconVariants}
                 custom={2}
@@ -221,15 +221,15 @@ const Footer = () => {
               </motion.a>
             </motion.div>
           </motion.div>
-          
+
           <motion.div variants={itemVariants}>
-            <motion.h3 
+            <motion.h3
               className="text-xl font-bold mb-4"
               variants={slideInLeft}
             >
               Services
             </motion.h3>
-            <motion.ul 
+            <motion.ul
               className="space-y-2"
               variants={containerVariants}
               initial="hidden"
@@ -237,7 +237,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               {services.map((service, index) => (
-                <motion.li 
+                <motion.li
                   key={index}
                   variants={listItemVariants}
                   custom={index}
@@ -253,15 +253,15 @@ const Footer = () => {
               ))}
             </motion.ul>
           </motion.div>
-          
+
           <motion.div variants={itemVariants}>
-            <motion.h3 
+            <motion.h3
               className="text-xl font-bold mb-4"
               variants={slideInLeft}
             >
               Quick Links
             </motion.h3>
-            <motion.ul 
+            <motion.ul
               className="space-y-2"
               variants={containerVariants}
               initial="hidden"
@@ -269,7 +269,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               {quickLinks.map((link, index) => (
-                <motion.li 
+                <motion.li
                   key={index}
                   variants={listItemVariants}
                   custom={index}
@@ -285,22 +285,22 @@ const Footer = () => {
               ))}
             </motion.ul>
           </motion.div>
-          
+
           <motion.div variants={itemVariants}>
-            <motion.h3 
+            <motion.h3
               className="text-xl font-bold mb-4"
               variants={slideInRight}
             >
               Newsletter
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="text-gray-300 mb-4"
               variants={fadeInUp}
             >
               Stay updated with our latest developments and industry insights.
             </motion.p>
-            <motion.form 
-              onSubmit={handleSubmit} 
+            <motion.form
+              onSubmit={handleSubmit}
               className="space-y-2"
               variants={fadeInUp}
             >
@@ -318,8 +318,8 @@ const Footer = () => {
                   whileTap={{ scale: 0.95 }}
                   className="mt-2"
                 >
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="w-full px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-all duration-300 flex items-center justify-center"
                   >
                     Subscribe
@@ -330,8 +330,8 @@ const Footer = () => {
             </motion.form>
           </motion.div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="mt-12 pt-8 border-t border-gray-700 text-center md:flex md:justify-between md:text-left items-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -339,23 +339,23 @@ const Footer = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <p className="text-gray-300">&copy; {new Date().getFullYear()} Chandrakala Universal Pvt. Ltd. All rights reserved.</p>
-          
+
           <div className="mt-4 md:mt-0 flex items-center justify-center md:justify-end">
             <div className="mr-8">
               <ul className="flex justify-center md:justify-end space-x-6">
-                <motion.li 
+                <motion.li
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
                 >
                   <a href="#" className="text-gray-300 hover:text-white transition">Privacy Policy</a>
                 </motion.li>
-                <motion.li 
+                <motion.li
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
                 >
                   <a href="#" className="text-gray-300 hover:text-white transition">Terms of Service</a>
                 </motion.li>
-                <motion.li 
+                <motion.li
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -363,7 +363,7 @@ const Footer = () => {
                 </motion.li>
               </ul>
             </div>
-            
+
             <motion.button
               onClick={scrollToTop}
               className="p-3 bg-primary rounded-full text-white shadow-lg hover:bg-primary/90 transition-all duration-300"
@@ -372,11 +372,11 @@ const Footer = () => {
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 260, 
-                damping: 20, 
-                delay: 0.7 
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.7
               }}
             >
               <ArrowUp className="h-5 w-5" />

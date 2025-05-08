@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui-jsx/button";
 import { ChevronRight } from "lucide-react";
 import { floatingAnimation, bounceIn } from "@/lib/animations";
 
@@ -31,37 +31,37 @@ const CallToAction = () => {
   };
 
   return (
-    <motion.section 
+    <motion.section
       className="py-12 lg:py-16 relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
       {/* Animated gradient background */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_100%] z-0"
         variants={gradientVariants}
         initial="hidden"
         animate="visible"
       />
-      
+
       {/* Decorative shapes */}
-      <motion.div 
+      <motion.div
         className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl z-0"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 2 }}
       />
-      
-      <motion.div 
+
+      <motion.div
         className="absolute bottom-10 right-10 w-24 h-24 bg-white/10 rounded-full blur-xl z-0"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 2, delay: 0.3 }}
       />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -76,7 +76,7 @@ const CallToAction = () => {
           className="bg-white/10 backdrop-blur-sm rounded-xl p-8 shadow-xl border border-white/20"
         >
           <motion.div className="max-w-3xl mx-auto">
-            <motion.div 
+            <motion.div
               className="mb-2 inline-block"
               variants={bounceIn}
               initial="hidden"
@@ -87,8 +87,8 @@ const CallToAction = () => {
                 Take Action
               </span>
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 hero-text-shadow"
               variants={textRevealVariants}
               initial="hidden"
@@ -98,8 +98,8 @@ const CallToAction = () => {
             >
               Ready to transform your educational institution?
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
               variants={textRevealVariants}
               initial="hidden"
@@ -109,7 +109,7 @@ const CallToAction = () => {
             >
               Contact us today to discuss how our digital solutions can enhance your operations and improve educational outcomes.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -121,9 +121,9 @@ const CallToAction = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
+                <Button
                   asChild
-                  size="lg" 
+                  size="lg"
                   className="bg-white text-primary hover:bg-gray-50 font-semibold shadow-lg transition-all duration-300"
                 >
                   <a href="#contact" className="flex items-center">
@@ -137,14 +137,14 @@ const CallToAction = () => {
                   </a>
                 </Button>
               </motion.div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
+                <Button
                   asChild
-                  size="lg" 
+                  size="lg"
                   variant="outline"
                   className="bg-transparent border-white text-white hover:bg-white/20 font-medium transition-all duration-300"
                 >
@@ -155,7 +155,7 @@ const CallToAction = () => {
           </motion.div>
         </motion.div>
       </div>
-      
+
       {/* Background Pattern */}
       <div className="absolute inset-0 z-0 opacity-20">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
