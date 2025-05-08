@@ -7,6 +7,7 @@ import {
   blurInAnimation,
   floatingAnimation
 } from "@/lib/animations";
+import mainGateImage from "../assets/images/maingate-2.jpg";
 
 const Hero = () => {
   // Enhanced staggered animation for text
@@ -164,8 +165,8 @@ const Hero = () => {
               transition={{ duration: 0.3 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
-                alt="Educational technology in classroom"
+                src={mainGateImage}
+                alt="Chandrakala Universal Main Gate"
                 className="rounded-xl shadow-xl w-full h-auto transition-all duration-300"
               />
             </motion.div>
@@ -195,8 +196,8 @@ const Hero = () => {
                   </svg>
                 </motion.div>
                 <div>
-                  <p className="font-medium">Trusted by</p>
-                  <p className="text-sm text-gray-500">15+ Educational Institutions</p>
+                  <p className="font-medium">Serving Since 2013</p>
+                  <p className="text-sm text-gray-500">Educational Excellence</p>
                 </div>
               </div>
             </motion.div>
