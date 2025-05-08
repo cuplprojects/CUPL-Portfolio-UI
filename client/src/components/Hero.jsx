@@ -95,8 +95,8 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="overflow-hidden">
-                {createTextVariants("Empowering Education with")}
+              <div className="overflow-hidden pb-2">
+                {createTextVariants("Winning your confidence")}
               </div>
               <motion.span
                 className="text-primary block mt-2"
@@ -104,7 +104,7 @@ const Hero = () => {
                 animate={{ opacity: 1, filter: "blur(0px)" }}
                 transition={{ duration: 0.8, delay: 1.2 }}
               >
-                Digital Innovation
+                Always
               </motion.span>
             </motion.h1>
 
@@ -196,7 +196,7 @@ const Hero = () => {
                 </motion.div>
                 <div>
                   <p className="font-medium">Trusted by</p>
-                  <p className="text-sm text-gray-500">50+ Educational Institutions</p>
+                  <p className="text-sm text-gray-500">15+ Educational Institutions</p>
                 </div>
               </div>
             </motion.div>
