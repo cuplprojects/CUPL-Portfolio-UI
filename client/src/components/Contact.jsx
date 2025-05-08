@@ -1,33 +1,9 @@
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, Send, CalendarClock } from "lucide-react";
-import { Input } from "@/components/ui-jsx/input";
-import { Textarea } from "@/components/ui-jsx/textarea";
-import { Button } from "@/components/ui-jsx/button";
-import { Label } from "@/components/ui-jsx/label";
+import { MapPin, Mail, Phone, CalendarClock } from "lucide-react";
 import { fadeInUp, slideInLeft, slideInRight, springScale, rotateIn } from "@/lib/animations";
 
 const Contact = () => {
-  // Handle form submission (non-functional as requested)
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // This is a frontend-only implementation, no backend integration
-    console.log("Form submitted (frontend only)");
-  };
-
   // Animation variants
-  const formItemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (custom) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-        delay: 0.1 + (custom * 0.1)
-      }
-    })
-  };
 
   const contactItemVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -105,118 +81,42 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 border border-gray-100"
+              className="bg-gray-50 rounded-xl shadow-md p-8 border border-gray-100 h-full"
               whileHover={{
                 boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                 y: -5,
                 transition: { duration: 0.3 }
               }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <motion.div
-                    className="space-y-2"
-                    variants={formItemVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    custom={0}
-                  >
-                    <Label htmlFor="name" className="font-medium">Full Name</Label>
-                    <Input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-primary/20 transition-all duration-300"
-                    />
-                  </motion.div>
+              <motion.h3
+                className="text-2xl font-semibold mb-8"
+                variants={springScale}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                Find Us on Map
+              </motion.h3>
 
-                  <motion.div
-                    className="space-y-2"
-                    variants={formItemVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    custom={1}
-                  >
-                    <Label htmlFor="email" className="font-medium">Email Address</Label>
-                    <Input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="your.email@example.com"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-primary/20 transition-all duration-300"
-                    />
-                  </motion.div>
-                </div>
-
-                <motion.div
-                  className="space-y-2"
-                  variants={formItemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={2}
-                >
-                  <Label htmlFor="subject" className="font-medium">Subject</Label>
-                  <Input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="How can we help you?"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-primary/20 transition-all duration-300"
-                  />
-                </motion.div>
-
-                <motion.div
-                  className="space-y-2"
-                  variants={formItemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={3}
-                >
-                  <Label htmlFor="message" className="font-medium">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    placeholder="Please describe your requirements in detail..."
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-primary/20 transition-all duration-300 resize-none"
-                  />
-                </motion.div>
-
-                <motion.div
-                  variants={formItemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={4}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button
-                      type="submit"
-                      className="w-full px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all duration-300"
-                    >
-                      <span className="flex items-center justify-center">
-                        Send Message
-                        <motion.span
-                          initial={{ x: 0 }}
-                          whileHover={{ x: 5 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                          className="ml-2"
-                        >
-                          <Send className="h-4 w-4" />
-                        </motion.span>
-                      </span>
-                    </Button>
-                  </motion.div>
-                </motion.div>
-              </form>
+              <motion.div
+                className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-lg overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d221.64069488644026!2d81.86160698241898!3d25.453610755760142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1746704330894!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Chandrakala Universal Pvt. Ltd. Location"
+                  className="rounded-lg shadow-md"
+                ></iframe>
+              </motion.div>
             </motion.div>
           </motion.div>
 
