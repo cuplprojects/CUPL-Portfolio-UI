@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Facebook, Linkedin, Twitter, ArrowUp, Send } from "lucide-react";
+import { Facebook, Linkedin, Twitter, ArrowUp, Send, Mail, Phone } from "lucide-react";
 import { Input } from "@/components/ui-jsx/input";
 import { Button } from "@/components/ui-jsx/button";
 import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
@@ -213,6 +213,28 @@ const Footer = () => {
               >
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin className="h-5 w-5" />
+              </motion.a>
+              <motion.a
+                href="mailto:hello@chandrakala.co.in"
+                className="p-2 bg-secondary-dark/40 rounded-full text-gray-300 hover:text-white transition"
+                variants={socialIconVariants}
+                custom={2}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <span className="sr-only">Email</span>
+                <Mail className="h-5 w-5" />
+              </motion.a>
+              <motion.a
+                href="tel:05322465187"
+                className="p-2 bg-secondary-dark/40 rounded-full text-gray-300 hover:text-white transition"
+                variants={socialIconVariants}
+                custom={3}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <span className="sr-only">Call 0532-2465187</span>
+                <Phone className="h-5 w-5" />
               </motion.a>
               {/* <motion.a
                 href="#"

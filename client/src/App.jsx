@@ -37,7 +37,7 @@ function App() {
           <Services />
           <Products />
           <WhyChooseUs />
-          <Clients />
+          {/* <Clients /> */}
           <CallToAction />
           <Contact />
         </main>
