@@ -168,9 +168,9 @@ const Contact = () => {
                   <div className="ml-6">
                     <h4 className="text-lg font-medium mb-2">Office Address</h4>
                     <p className="text-gray-600">
-                      Chandrakala Universal Pvt. Ltd.,<br />
-                      Civil Lines, Prayagraj,<br />
-                      Uttar Pradesh 211001, India
+                      42/7 Jawahar Lal Nehru Road ,<br /> Near Parvati Hospital ,<br /> Beside Punjab National Bank<br />
+                      Tagore Town, Prayagraj,<br />
+                      Uttar Pradesh 211002, India
                     </p>
                   </div>
                 </motion.div>
@@ -199,18 +199,18 @@ const Contact = () => {
                     <h4 className="text-lg font-medium mb-2">Email Us</h4>
                     <p className="text-gray-600">
                       <a
-                        href="mailto:info@chandrakalauniversal.com"
+                        href="mailto:hello@chandrakala.co.in"
                         className="hover:text-primary transition-colors duration-300"
                       >
-                        info@chandrakalauniversal.com
+                        hello@chandrakala.co.in
                       </a>
-                      <br />
+                      {/* <br />
                       <a
                         href="mailto:support@chandrakalauniversal.com"
                         className="hover:text-primary transition-colors duration-300"
                       >
                         support@chandrakalauniversal.com
-                      </a>
+                      </a> */}
                     </p>
                   </div>
                 </motion.div>
@@ -239,18 +239,18 @@ const Contact = () => {
                     <h4 className="text-lg font-medium mb-2">Call Us</h4>
                     <p className="text-gray-600">
                       <a
-                        href="tel:+919876543210"
+                        href="tel:0532-2465187"
                         className="hover:text-primary transition-colors duration-300"
                       >
-                        +91 9876543210
+                        0532-2465187
                       </a>
-                      <br />
+                      {/* <br />
                       <a
                         href="tel:+911234567890"
                         className="hover:text-primary transition-colors duration-300"
                       >
                         +91 1234567890
-                      </a>
+                      </a> */}
                     </p>
                   </div>
                 </motion.div>
@@ -279,13 +279,13 @@ const Contact = () => {
                     <h4 className="text-lg font-medium mb-2">Business Hours</h4>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-center">
-                        <span className="w-32">Monday - Friday:</span>
-                        <span className="font-medium">9:00 AM - 6:00 PM</span>
+                        <span className="w-32">Monday - Saturday:</span>
+                        <span className="font-medium">10:00 AM - 6:00 PM</span>
                       </li>
-                      <li className="flex items-center">
+                      {/* <li className="flex items-center">
                         <span className="w-32">Saturday:</span>
                         <span className="font-medium">10:00 AM - 2:00 PM</span>
-                      </li>
+                      </li> */}
                       <li className="flex items-center">
                         <span className="w-32">Sunday:</span>
                         <span className="font-medium">Closed</span>
