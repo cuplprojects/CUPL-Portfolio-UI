@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Send, CalendarClock } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui-jsx/input";
+import { Textarea } from "@/components/ui-jsx/textarea";
+import { Button } from "@/components/ui-jsx/button";
+import { Label } from "@/components/ui-jsx/label";
 import { fadeInUp, slideInLeft, slideInRight, springScale, rotateIn } from "@/lib/animations";
 
 const Contact = () => {
@@ -53,19 +53,19 @@ const Contact = () => {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       />
-      
-      <motion.div 
+
+      <motion.div
         className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.6 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, delay: 0.3 }}
       />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.div
-            className="mb-2 inline-block" 
+            className="mb-2 inline-block"
             variants={springScale}
             initial="hidden"
             whileInView="visible"
@@ -75,8 +75,8 @@ const Contact = () => {
               Get In Touch
             </span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-3xl md:text-4xl font-bold mb-6"
             variants={rotateIn}
             initial="hidden"
@@ -85,8 +85,8 @@ const Contact = () => {
           >
             Let's Discuss Your Requirements
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-lg text-gray-600"
             variants={fadeInUp}
             initial="hidden"
@@ -96,7 +96,7 @@ const Contact = () => {
             Reach out to our team for more information about our services or to schedule a consultation.
           </motion.p>
         </div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12">
           <motion.div
             variants={slideInLeft}
@@ -114,7 +114,7 @@ const Contact = () => {
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <motion.div 
+                  <motion.div
                     className="space-y-2"
                     variants={formItemVariants}
                     initial="hidden"
@@ -123,16 +123,16 @@ const Contact = () => {
                     custom={0}
                   >
                     <Label htmlFor="name" className="font-medium">Full Name</Label>
-                    <Input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
-                      placeholder="Your name" 
+                    <Input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your name"
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-primary/20 transition-all duration-300"
                     />
                   </motion.div>
-                  
-                  <motion.div 
+
+                  <motion.div
                     className="space-y-2"
                     variants={formItemVariants}
                     initial="hidden"
@@ -141,17 +141,17 @@ const Contact = () => {
                     custom={1}
                   >
                     <Label htmlFor="email" className="font-medium">Email Address</Label>
-                    <Input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
-                      placeholder="your.email@example.com" 
+                    <Input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="your.email@example.com"
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-primary/20 transition-all duration-300"
                     />
                   </motion.div>
                 </div>
-                
-                <motion.div 
+
+                <motion.div
                   className="space-y-2"
                   variants={formItemVariants}
                   initial="hidden"
@@ -160,16 +160,16 @@ const Contact = () => {
                   custom={2}
                 >
                   <Label htmlFor="subject" className="font-medium">Subject</Label>
-                  <Input 
-                    type="text" 
-                    id="subject" 
-                    name="subject" 
-                    placeholder="How can we help you?" 
+                  <Input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="How can we help you?"
                     className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-primary/20 transition-all duration-300"
                   />
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="space-y-2"
                   variants={formItemVariants}
                   initial="hidden"
@@ -178,15 +178,15 @@ const Contact = () => {
                   custom={3}
                 >
                   <Label htmlFor="message" className="font-medium">Message</Label>
-                  <Textarea 
-                    id="message" 
-                    name="message" 
-                    rows="5" 
-                    placeholder="Please describe your requirements in detail..." 
+                  <Textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Please describe your requirements in detail..."
                     className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-primary/20 transition-all duration-300 resize-none"
                   />
                 </motion.div>
-                
+
                 <motion.div
                   variants={formItemVariants}
                   initial="hidden"
@@ -198,8 +198,8 @@ const Contact = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       className="w-full px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all duration-300"
                     >
                       <span className="flex items-center justify-center">
@@ -219,14 +219,14 @@ const Contact = () => {
               </form>
             </motion.div>
           </motion.div>
-          
+
           <motion.div
             variants={slideInRight}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div 
+            <motion.div
               className="bg-gray-50 rounded-xl p-8 h-full border border-gray-100 shadow-md"
               whileHover={{
                 boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
@@ -234,7 +234,7 @@ const Contact = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              <motion.h3 
+              <motion.h3
                 className="text-2xl font-semibold mb-8"
                 variants={springScale}
                 initial="hidden"
@@ -243,9 +243,9 @@ const Contact = () => {
               >
                 Contact Information
               </motion.h3>
-              
+
               <div className="space-y-8">
-                <motion.div 
+                <motion.div
                   className="flex items-start"
                   variants={contactItemVariants}
                   initial="hidden"
@@ -253,18 +253,18 @@ const Contact = () => {
                   viewport={{ once: true }}
                   custom={0}
                 >
-                  <motion.div 
+                  <motion.div
                     className="flex-shrink-0 mt-1 bg-primary/10 p-3 rounded-full text-primary"
-                    whileHover={{ 
-                      scale: 1.1, 
-                      backgroundColor: "hsl(var(--primary))", 
-                      color: "white" 
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "hsl(var(--primary))",
+                      color: "white"
                     }}
                     transition={{ duration: 0.3 }}
                   >
                     <MapPin className="h-6 w-6" />
                   </motion.div>
-                  
+
                   <div className="ml-6">
                     <h4 className="text-lg font-medium mb-2">Office Address</h4>
                     <p className="text-gray-600">
@@ -274,8 +274,8 @@ const Contact = () => {
                     </p>
                   </div>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="flex items-start"
                   variants={contactItemVariants}
                   initial="hidden"
@@ -283,30 +283,30 @@ const Contact = () => {
                   viewport={{ once: true }}
                   custom={1}
                 >
-                  <motion.div 
+                  <motion.div
                     className="flex-shrink-0 mt-1 bg-primary/10 p-3 rounded-full text-primary"
-                    whileHover={{ 
-                      scale: 1.1, 
-                      backgroundColor: "hsl(var(--primary))", 
-                      color: "white" 
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "hsl(var(--primary))",
+                      color: "white"
                     }}
                     transition={{ duration: 0.3 }}
                   >
                     <Mail className="h-6 w-6" />
                   </motion.div>
-                  
+
                   <div className="ml-6">
                     <h4 className="text-lg font-medium mb-2">Email Us</h4>
                     <p className="text-gray-600">
-                      <a 
-                        href="mailto:info@chandrakalauniversal.com" 
+                      <a
+                        href="mailto:info@chandrakalauniversal.com"
                         className="hover:text-primary transition-colors duration-300"
                       >
                         info@chandrakalauniversal.com
                       </a>
                       <br />
-                      <a 
-                        href="mailto:support@chandrakalauniversal.com" 
+                      <a
+                        href="mailto:support@chandrakalauniversal.com"
                         className="hover:text-primary transition-colors duration-300"
                       >
                         support@chandrakalauniversal.com
@@ -314,8 +314,8 @@ const Contact = () => {
                     </p>
                   </div>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="flex items-start"
                   variants={contactItemVariants}
                   initial="hidden"
@@ -323,30 +323,30 @@ const Contact = () => {
                   viewport={{ once: true }}
                   custom={2}
                 >
-                  <motion.div 
+                  <motion.div
                     className="flex-shrink-0 mt-1 bg-primary/10 p-3 rounded-full text-primary"
-                    whileHover={{ 
-                      scale: 1.1, 
-                      backgroundColor: "hsl(var(--primary))", 
-                      color: "white" 
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "hsl(var(--primary))",
+                      color: "white"
                     }}
                     transition={{ duration: 0.3 }}
                   >
                     <Phone className="h-6 w-6" />
                   </motion.div>
-                  
+
                   <div className="ml-6">
                     <h4 className="text-lg font-medium mb-2">Call Us</h4>
                     <p className="text-gray-600">
-                      <a 
-                        href="tel:+919876543210" 
+                      <a
+                        href="tel:+919876543210"
                         className="hover:text-primary transition-colors duration-300"
                       >
                         +91 9876543210
                       </a>
                       <br />
-                      <a 
-                        href="tel:+911234567890" 
+                      <a
+                        href="tel:+911234567890"
                         className="hover:text-primary transition-colors duration-300"
                       >
                         +91 1234567890
@@ -354,8 +354,8 @@ const Contact = () => {
                     </p>
                   </div>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="flex items-start"
                   variants={contactItemVariants}
                   initial="hidden"
@@ -363,18 +363,18 @@ const Contact = () => {
                   viewport={{ once: true }}
                   custom={3}
                 >
-                  <motion.div 
+                  <motion.div
                     className="flex-shrink-0 mt-1 bg-primary/10 p-3 rounded-full text-primary"
-                    whileHover={{ 
-                      scale: 1.1, 
-                      backgroundColor: "hsl(var(--primary))", 
-                      color: "white" 
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "hsl(var(--primary))",
+                      color: "white"
                     }}
                     transition={{ duration: 0.3 }}
                   >
                     <CalendarClock className="h-6 w-6" />
                   </motion.div>
-                  
+
                   <div className="ml-6">
                     <h4 className="text-lg font-medium mb-2">Business Hours</h4>
                     <ul className="space-y-2 text-gray-600">

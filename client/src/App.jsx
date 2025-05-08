@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui-jsx/toaster";
+import { TooltipProvider } from "@/components/ui-jsx/tooltip";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -17,7 +17,7 @@ function App() {
     // Setup scroll animations and navigation highlighting
     setupScrollAnimations();
     setupNavHighlighting();
-    
+
     // Cleanup event listeners on unmount
     return () => {
       window.removeEventListener("scroll", setupScrollAnimations);
