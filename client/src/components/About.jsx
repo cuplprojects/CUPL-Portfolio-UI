@@ -10,6 +10,7 @@ import {
 } from "@/lib/animations";
 import { useRef } from "react";
 import { Button } from "@/components/ui-jsx/button";
+import 
 
 const About = () => {
   // Ref for parallax effect
