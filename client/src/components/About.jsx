@@ -10,7 +10,7 @@ import {
 } from "@/lib/animations";
 import { useRef } from "react";
 import { Button } from "@/components/ui-jsx/button";
-import 
+import teamWorkImg from "./../assets/images/team-work.svg";
 
 const About = () => {
   // Ref for parallax effect
@@ -140,7 +140,7 @@ const About = () => {
               />
 
               <img
-                src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
+                src={teamWorkImg}
                 alt="University campus with modern architecture"
                 className="rounded-xl shadow-xl w-full h-auto"
               />
