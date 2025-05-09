@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logoImage from "../assets/logo/Group 1.png";
@@ -7,6 +7,21 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const navLinksRef = useRef([]);
+  const indicatorRef = useRef(null);
+
+  // Update the indicator position based on active link
+  const updateIndicator = () => {
+    const activeLink = navLinksRef.current.find(
+      link => link && link.getAttribute('data-section') === activeSection
+    );
+
+    if (activeLink && indicatorRef.current) {
+      const { offsetLeft, offsetWidth } = activeLink;
+      indicatorRef.current.style.left = `${offsetLeft}px`;
+      indicatorRef.current.style.width = `${offsetWidth}px`;
+    }
+  };
 
   // Handle scroll event to change navbar style when scrolled
   useEffect(() => {
@@ -36,6 +51,21 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Effect to initialize indicator when component mounts
+  useEffect(() => {
+    // Small delay to ensure DOM is fully rendered
+    const timer = setTimeout(() => {
+      updateIndicator();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Effect to update indicator when active section changes
+  useEffect(() => {
+    updateIndicator();
+  }, [activeSection]);
 
   // Handle direct navigation link clicks
   const handleNavClick = (sectionId) => {
@@ -139,7 +169,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-[99] transition-all duration-300 ${
         scrolled ? "bg-white shadow-sm py-2" : "bg-white/95 py-4"
       }`}
       initial={{ y: -100 }}
@@ -190,16 +220,23 @@ const Navbar = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 nav-container relative">
+            {/* Animated indicator */}
+            <div
+              ref={indicatorRef}
+              className="nav-indicator absolute"
+            ></div>
+
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
                 href={link.href}
+                data-section={link.id}
+                ref={el => navLinksRef.current[index] = el}
                 onClick={() => handleNavClick(link.id)}
                 style={{
                   color: activeSection === link.id ? 'var(--color-primary, #10b981)' : '',
-                  fontWeight: activeSection === link.id ? '600' : '500',
-                  borderBottom: activeSection === link.id ? '2px solid var(--color-primary, #10b981)' : 'none'
+                  fontWeight: activeSection === link.id ? '600' : '500'
                 }}
                 className="nav-link font-medium transition-all duration-300 text-gray-800 hover:text-primary"
                 variants={navItemVariants}
@@ -280,6 +317,7 @@ const Navbar = () => {
                     variants={mobileItemVariants}
                     custom={index}
                     href={link.href}
+                    data-section={link.id}
                     onClick={() => handleNavClick(link.id)}
                     style={{
                       color: activeSection === link.id ? 'var(--color-primary, #10b981)' : '',
