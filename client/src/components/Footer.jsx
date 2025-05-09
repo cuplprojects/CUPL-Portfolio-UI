@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Facebook, Linkedin, Twitter, ArrowUp, Send, Mail, Phone } from "lucide-react";
+import { Facebook, Linkedin, Twitter, Send, Mail, Phone } from "lucide-react";
 import { Input } from "@/components/ui-jsx/input";
 import { Button } from "@/components/ui-jsx/button";
 import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
@@ -100,13 +100,7 @@ const Footer = () => {
   //   console.log("Newsletter form submitted (frontend only)");
   // };
 
-  // Smooth scroll to top function
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
+  // Footer component
 
   return (
     <footer className="bg-secondary text-white relative overflow-hidden">
@@ -424,23 +418,7 @@ const Footer = () => {
               </ul>
             </div> */}
 
-            <motion.button
-              onClick={scrollToTop}
-              className="p-3 bg-primary rounded-full text-white shadow-lg hover:bg-primary/90 transition-all duration-300"
-              whileHover={{ y: -4 }}
-              whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                type: "spring",
-                stiffness: 260,
-                damping: 20,
-                delay: 0.7
-              }}
-            >
-              <ArrowUp className="h-5 w-5" />
-            </motion.button>
+
           </div>
         </motion.div>
       </div>

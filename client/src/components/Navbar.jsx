@@ -175,7 +175,7 @@ const Navbar = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Chandrakala Universal Pvt. Ltd.
+                  Chandrakala Universal
                 </motion.span>
                 {/* <motion.span
                   className="text-primary text-lg md:text-xl font-bold hidden md:inline-block"
@@ -263,7 +263,7 @@ const Navbar = () => {
             >
               <div className="flex flex-col space-y-0">
                 {/* Mobile logo display with full name */}
-                <motion.div
+                {/* <motion.div
                   variants={mobileItemVariants}
                   className="flex items-center py-2 px-4 mb-2 border-b border-gray-100"
                 >
@@ -272,7 +272,7 @@ const Navbar = () => {
                     <span className="text-secondary">Chandrakala</span>
                     <span className="text-primary"> Universal</span>
                   </div>
-                </motion.div>
+                </motion.div> */}
 
                 {navLinks.map((link, index) => (
                   <motion.a
