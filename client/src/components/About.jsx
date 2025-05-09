@@ -279,7 +279,7 @@ const About = () => {
         </div>
 
         {/* Timeline indicator */}
-        <motion.div
+        {/* <motion.div
           className="mt-24 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -330,7 +330,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
