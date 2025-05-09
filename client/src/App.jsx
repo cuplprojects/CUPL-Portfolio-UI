@@ -13,7 +13,11 @@ import Clients from "./components/Clients";
 import CallToAction from "./components/CallToAction";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import { setupScrollAnimations, setupNavHighlighting } from "./lib/scrollUtils";
+import {
+  setupScrollAnimations,
+  setupNavHighlighting,
+  setupParallaxEffects
+} from "./lib/scrollUtils";
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -33,9 +37,10 @@ function App() {
   };
 
   useEffect(() => {
-    // Setup scroll animations and navigation highlighting
-    setupScrollAnimations();
-    setupNavHighlighting();
+    // Setup scroll animations, navigation highlighting, and parallax effects
+    const scrollAnimationsCleanup = setupScrollAnimations();
+    const navHighlightingCleanup = setupNavHighlighting();
+    const parallaxEffectsCleanup = setupParallaxEffects();
 
     // Show/hide scroll button based on scroll position
     const handleScroll = () => {
@@ -46,12 +51,13 @@ function App() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Cleanup event listeners on unmount
     return () => {
-      window.removeEventListener("scroll", setupScrollAnimations);
-      window.removeEventListener("scroll", setupNavHighlighting);
+      window.removeEventListener("scroll", scrollAnimationsCleanup);
+      window.removeEventListener("scroll", navHighlightingCleanup);
+      window.removeEventListener("scroll", parallaxEffectsCleanup);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -60,10 +66,13 @@ function App() {
     <TooltipProvider>
       <Toaster />
       <div className="min-h-screen">
-        {/* Scroll progress indicator */}
+        {/* Enhanced scroll progress indicator */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] origin-left shadow-glow"
+          className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary z-[100] origin-left shadow-glow"
           style={{ scaleX }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         />
         <Navbar />
         <main>
@@ -78,15 +87,15 @@ function App() {
         </main>
         <Footer />
 
-        {/* Floating scroll-to-top button */}
+        {/* Enhanced floating scroll-to-top button */}
         {showScrollButton && (
           <motion.button
             onClick={scrollToTop}
-            className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 p-3 sm:p-4 bg-primary rounded-full text-white shadow-lg hover:bg-primary/90 transition-all duration-300 z-50"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
-            whileHover={{ y: -4 }}
+            className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 p-3 sm:p-4 bg-gradient-to-r from-primary to-accent rounded-full text-white shadow-lg hover:shadow-xl hover:bg-gradient-to-r hover:from-accent hover:to-primary transition-all duration-300 z-50 backdrop-blur-sm border border-white/10"
+            initial={{ opacity: 0, scale: 0, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0, y: 20 }}
+            whileHover={{ y: -4, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.4)" }}
             whileTap={{ scale: 0.9 }}
             transition={{
               type: "spring",

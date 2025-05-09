@@ -1,14 +1,22 @@
 // Setup animations on scroll
 export const setupScrollAnimations = () => {
-  const scrollAnimateElements = document.querySelectorAll('.scroll-animate');
+  // Select all elements with scroll animation classes
+  const scrollAnimateElements = document.querySelectorAll(
+    '.scroll-animate, .scroll-fade-in, .scroll-fade-up, .scroll-fade-left, .scroll-fade-right, .scroll-scale'
+  );
 
   const checkScroll = () => {
     scrollAnimateElements.forEach(element => {
       const elementTop = element.getBoundingClientRect().top;
-      const elementVisible = 150;
+      // Adjust visibility threshold based on element data attribute or default to 150px
+      const elementVisible = element.dataset.threshold ? parseInt(element.dataset.threshold) : 150;
 
+      // Add active class when element is in viewport
       if (elementTop < window.innerHeight - elementVisible) {
         element.classList.add('active');
+      } else if (element.dataset.reset === 'true') {
+        // Optional: Remove active class when element is out of viewport if reset is enabled
+        element.classList.remove('active');
       }
     });
   };
@@ -16,8 +24,8 @@ export const setupScrollAnimations = () => {
   // Check elements on initial load
   checkScroll();
 
-  // Add scroll event listener
-  window.addEventListener('scroll', checkScroll);
+  // Add scroll event listener with passive option for better performance
+  window.addEventListener('scroll', checkScroll, { passive: true });
 
   return checkScroll;
 };
@@ -99,10 +107,63 @@ export const setupNavHighlighting = () => {
   return highlightNav;
 };
 
-// Smooth scroll to element
+// Enhanced smooth scroll to element
 export const scrollToElement = (elementId) => {
   const element = document.getElementById(elementId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
+  if (!element) return;
+
+  // Get the navbar height to offset the scroll position
+  const navbar = document.querySelector('header');
+  const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+  // Calculate the element's position relative to the document
+  const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+
+  // Scroll to the element with offset for the navbar
+  window.scrollTo({
+    top: elementPosition - navbarHeight - 20, // Additional 20px padding
+    behavior: 'smooth'
+  });
+};
+
+// Setup parallax scroll effects
+export const setupParallaxEffects = () => {
+  const parallaxElements = document.querySelectorAll('.parallax-scroll');
+
+  const updateParallax = () => {
+    parallaxElements.forEach(element => {
+      // Get the element's position relative to the viewport
+      const elementTop = element.getBoundingClientRect().top;
+      const elementHeight = element.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      // Calculate how far the element is from the center of the viewport
+      const distanceFromCenter = elementTop - windowHeight / 2 + elementHeight / 2;
+
+      // Calculate the parallax effect (adjust the divisor to control the effect strength)
+      const parallaxValue = distanceFromCenter / 10;
+
+      // Get the direction from data attribute or default to 'up'
+      const direction = element.dataset.parallaxDirection || 'up';
+
+      // Apply the transform based on direction
+      if (direction === 'up') {
+        element.style.transform = `translateY(${-parallaxValue}px)`;
+      } else if (direction === 'down') {
+        element.style.transform = `translateY(${parallaxValue}px)`;
+      } else if (direction === 'left') {
+        element.style.transform = `translateX(${-parallaxValue}px)`;
+      } else if (direction === 'right') {
+        element.style.transform = `translateX(${parallaxValue}px)`;
+      }
+    });
+  };
+
+  // Update on scroll
+  window.addEventListener('scroll', updateParallax, { passive: true });
+
+  // Initial update
+  updateParallax();
+
+  return updateParallax;
 };
