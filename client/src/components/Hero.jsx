@@ -202,7 +202,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="overflow-hidden pb-2">
+              <div className="overflow-hidden pb-4">
                 {createTextVariants("Winning your confidence")}
               </div>
               <motion.span
