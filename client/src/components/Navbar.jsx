@@ -169,7 +169,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-[99] transition-all duration-300 ${
         scrolled ? "bg-white shadow-sm py-2" : "bg-white/95 py-4"
       }`}
       initial={{ y: -100 }}
