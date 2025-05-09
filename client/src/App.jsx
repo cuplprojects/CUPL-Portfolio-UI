@@ -71,7 +71,7 @@ function App() {
         {showScrollButton && (
           <motion.button
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 p-4 bg-primary rounded-full text-white shadow-lg hover:bg-primary/90 transition-all duration-300 z-50"
+            className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 p-3 sm:p-4 bg-primary rounded-full text-white shadow-lg hover:bg-primary/90 transition-all duration-300 z-50"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
@@ -83,7 +83,7 @@ function App() {
               damping: 20
             }}
           >
-            <ArrowUp className="h-6 w-6" />
+            <ArrowUp className="h-5 w-5 sm:h-6 sm:w-6" />
           </motion.button>
         )}
       </div>
