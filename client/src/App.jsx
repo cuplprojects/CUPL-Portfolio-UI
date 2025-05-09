@@ -68,7 +68,7 @@ function App() {
       <div className="min-h-screen">
         {/* Enhanced scroll progress indicator */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary z-[100] origin-left shadow-glow"
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary z-[100] origin-left shadow-glow"
           style={{ scaleX }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
