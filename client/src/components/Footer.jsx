@@ -26,7 +26,7 @@ const Footer = () => {
     { name: "Services", href: "#services" },
     { name: "Products", href: "#products" },
     { name: "Why Choose Us", href: "#why-us" },
-    // { name: "Our Clients", href: "#clients" },
+    { name: "Gallery", href: "#gallery" },
     { name: "Contact", href: "#contact" },
   ];
 

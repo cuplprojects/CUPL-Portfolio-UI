@@ -9,6 +9,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Products from "./components/Products";
 import WhyChooseUs from "./components/WhyChooseUs";
+import Gallery from "./components/Gallery";
 import Clients from "./components/Clients";
 import CallToAction from "./components/CallToAction";
 import Contact from "./components/Contact";
@@ -81,6 +82,7 @@ function App() {
           <Services />
           <Products />
           <WhyChooseUs />
+          <Gallery />
           {/* <Clients /> */}
           <CallToAction />
           <Contact />

@@ -91,6 +91,7 @@ const Navbar = () => {
     { name: "Services", href: "#services", id: "services" },
     { name: "Products", href: "#products", id: "products" },
     { name: "Why Choose Us", href: "#why-us", id: "why-us" },
+    { name: "Gallery", href: "#gallery", id: "gallery" },
     // { name: "Our Clients", href: "#clients", id: "clients" },
     { name: "Contact", href: "#contact", id: "contact" },
   ];
