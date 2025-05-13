@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn, Maximize } from "lucide-react";
 
 // Import all gallery images
 import caImage from "../assets/images/gallery/CA.png";
@@ -20,18 +20,6 @@ const Gallery = () => {
   // Gallery images with metadata
   const galleryImages = [
     {
-      src: caImage,
-      alt: "Chartered Accountant",
-      title: "Financial Excellence",
-      description: "Our financial team ensures compliance and growth."
-    },
-    {
-      src: devTeamImage,
-      alt: "Development Team",
-      title: "Innovation Hub",
-      description: "Our talented developers creating cutting-edge solutions."
-    },
-    {
       src: director1Image,
       alt: "Director",
       title: "Leadership",
@@ -42,6 +30,18 @@ const Gallery = () => {
       alt: "Director Meeting",
       title: "Strategic Planning",
       description: "Shaping the future of educational technology."
+    },
+    {
+      src: caImage,
+      alt: "Chartered Accountant",
+      title: "Financial Excellence",
+      description: "Our financial team ensures compliance and growth."
+    },
+    {
+      src: devTeamImage,
+      alt: "Development Team",
+      title: "Innovation Hub",
+      description: "Our talented developers creating cutting-edge solutions."
     },
     {
       src: meetingImage,
@@ -219,7 +219,7 @@ const Gallery = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={featuredIndex}
-                  className="relative group aspect-video"
+                  className="relative group aspect-video h-96 w-full object-cover"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -382,9 +382,9 @@ const Gallery = () => {
             </button>
 
             <motion.div
-              className="relative max-w-4xl max-h-[80vh] overflow-hidden rounded-lg"
+              className="relative max-w-5xl max-h-[85vh] overflow-hidden rounded-lg"
               initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              animate={{ scale: 1.05, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
@@ -392,8 +392,14 @@ const Gallery = () => {
               <img
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover md:object-contain transform hover:scale-110 transition-transform duration-300"
               />
+              {/* Zoom indicator */}
+              <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-full flex items-center space-x-2 text-white/90 text-sm">
+                <Maximize className="h-4 w-4" />
+                <span>Hover to zoom</span>
+              </div>
+
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/80 to-transparent p-4">
                 <h3 className="text-white font-semibold text-xl">{selectedImage.title}</h3>
                 <p className="text-white/80">{selectedImage.description}</p>
